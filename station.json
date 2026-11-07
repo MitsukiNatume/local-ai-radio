@@ -21,8 +21,10 @@
   "thumbnail": "character/base.png",
   "note": "AIで生成したキャラクターです"
  },
- "credits": [],
- "caster": "",
+ "credits": [
+  "声：COEIROINK:リリンちゃん"
+ ],
+ "caster": "声：COEIROINK:リリンちゃん",
  "audio": {
   "dir": "audio",
   "keep_days": 30
