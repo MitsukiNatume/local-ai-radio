@@ -1,8 +1,8 @@
 {
  "format": "myradio/station-1",
  "name": "ローカルAIラジオ",
- "description": "ローカルAIとAI研究の、きのうの気になるニュースを、毎朝90秒で。",
- "tagline": "ローカルAI・AI研究 朝のニュース",
+ "description": "ローカルAI・AI全般・AI研究・電子工作の、きのうの気になるニュースを毎朝お届け。",
+ "tagline": "AI・電子工作 朝のニュース",
  "logo": "logo.svg",
  "url": "https://mitsukinatume.github.io/local-ai-radio/",
  "repo": "https://github.com/MitsukiNatume/local-ai-radio",

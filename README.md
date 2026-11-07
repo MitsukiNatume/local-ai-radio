@@ -1,8 +1,8 @@
 # ローカルAIラジオ
 
-**キャラクターが毎朝、ローカルAIとAI研究のニュースを読む放送局です。**
+**キャラクターが毎朝、AIと電子工作のニュースを読む放送局です。**
 
-- ローカルAIとAI研究の、きのうの気になるニュースを、毎朝90秒で
+- ローカルAI・AI全般・AI研究・電子工作の、きのうの気になるニュースを毎朝お届け
 - 放送は https://mitsukinatume.github.io/local-ai-radio/
 - この局は [myradio](https://github.com/monoradio102/myradio) のテンプレートで開局しました
 
