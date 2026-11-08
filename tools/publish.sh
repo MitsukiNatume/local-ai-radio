@@ -21,6 +21,9 @@ for f in "$DIR"/*; do                            # audio files named <YYYY-MM-DD
 done
 # share cards (tools/share.py) when Pillow is there: SHARE_PYTHON picks the python, SHARE_FONT the font
 PY=${SHARE_PYTHON:-python3}
+# resvg_py (SVG logo on the cards) does not survive environment replacement: install it on demand.
+# Non-fatal on purpose: if the install fails, cards are still made (without the logo) and publishing continues.
+if ! "$PY" -c "import resvg_py" 2>/dev/null; then "$PY" -m pip install --break-system-packages -q resvg-py 2>/dev/null || echo "resvg-py: install failed; share cards will lack the logo"; fi
 if "$PY" -c "import PIL" 2>/dev/null; then "$PY" tools/share.py "$TMP" --all --front; else echo "share cards: skipped (no Pillow)"; fi
 touch "$TMP/.nojekyll"                           # serve files as they are
 cd "$TMP"
