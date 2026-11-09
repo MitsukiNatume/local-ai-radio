@@ -13,12 +13,12 @@ station.json         局の自己紹介
 episodes.json        回の一覧
 episodes/            台本（JSON）
 audio/               声（mainにはコミットしません）
-character/           キャスター（myradioのお手本キャラをそのまま使用）
+character/           キャスター（AIで生成したオリジナルキャラクター）
 tools/publish.sh     GitHub Pagesへの公開
 ```
 
 ## ライセンス・クレジット
 
 - プログラム: MIT License（myradio）
-- キャラクター（`character/`）: myradioのお手本キャラを、公序良俗に反しない範囲で使用しています
+- キャラクター（`character/`）: AIで生成したオリジナルキャラクターです
 - 天気: Open-Meteo（CC BY 4.0）
