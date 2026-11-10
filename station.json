@@ -1,7 +1,7 @@
 {
  "format": "myradio/station-1",
  "name": "ローカルAIラジオ",
- "description": "ローカルAI・AI全般・AI研究・画像生成の、きのうの気になるニュースを毎朝お届け。",
+ "description": "AI全般・画像生成の、きのうの気になるニュースを毎朝お届け。",
  "tagline": "ローカルAI・画像生成 朝のニュース",
  "logo": "logo.svg",
  "url": "https://mitsukinatume.github.io/local-ai-radio/",
