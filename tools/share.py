@@ -39,7 +39,7 @@ def font(path, size, weight):
 
 def wrap(draw, text, f, width, max_lines):
     """lines of text that fit the width: Latin words stay whole, Japanese breaks between characters (not before 、。)"""
-    tokens = re.findall(r"[A-Za-z0-9][\w.\-'’:/+&]*|\s+|.", text)
+    tokens = re.findall(r"[A-Za-z0-9][A-Za-z0-9_.\-'’:/+&]*|\s+|.", text)
     lines, cur = [], ""
     for t in tokens:
         if draw.textlength(cur + t, font=f) <= width or not cur.strip() or t in "、。，．・」』）)!?！？ー":
@@ -101,10 +101,23 @@ def card(station, st, ep, lang, char, logo, fpath):
     if st("tagline"): d.text((x0, y), st("tagline"), font=font(fpath, 24, 700), fill=TEAL); y += 36
     d.text((x0, y), date_text(ep["date"], lang), font=font(fpath, 24, 600), fill=MUTED); y += 54
 
-    # the episode title, then its topics
-    ft = font(fpath, 48, 800)
-    for line in wrap(d, ep["title"], ft, right - x0, 3):
-        d.text((x0, y), line, font=ft, fill=TEXT); y += 62
+    # the episode title, then its topics: prefer two lines, shrinking the type until every line
+    # fits the text column; only a title that still cannot fit goes to three lines. Either way no
+    # line may run under the character's frame (its left edge is at x=670, the column ends at 650).
+    tw = right - x0
+    lines = ft = size = None
+    for limit in (2, 3):
+        for size in (48, 44, 40, 36, 32):
+            f_try = font(fpath, size, 800)
+            got = wrap(d, ep["title"], f_try, tw, 99)
+            if len(got) <= limit and all(d.textlength(ln, font=f_try) <= tw + 14 for ln in got):
+                lines, ft = got, f_try; break
+        if lines: break
+    if not lines:   # extremely long title: smallest type, three lines, the rest is cut with …
+        size, ft = 32, font(fpath, 32, 800)
+        lines = wrap(d, ep["title"], ft, tw, 3)
+    for line in lines:
+        d.text((x0, y), line, font=ft, fill=TEXT); y += size + 14
     y += 14
     fn, fl = font(fpath, 22, 800), font(fpath, 25, 600)
     for j, n in enumerate(ep["news"]):
