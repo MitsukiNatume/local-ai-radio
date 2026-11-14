@@ -1,5 +1,12 @@
 [
  {
+  "date": "2026-11-15",
+  "ja": {
+   "title": "Qwen3-8Bが公式GGUFに、NVIDIAの社長交代",
+   "seconds": 191.51
+  }
+ },
+ {
   "date": "2026-11-14",
   "ja": {
    "title": "llama.cpp 1.0到達、145BモデルがノートPCへ",
